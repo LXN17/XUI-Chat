@@ -9,10 +9,9 @@ import messageRoutes from "./routes/message.route.js";
 import { app, server } from "./lib/socket.js";
 
 dotenv.config();
-const PORT = process.env.PORT; // ← подстраховка по порту
+const PORT = process.env.PORT || 8080;
 const __dirname = path.resolve();
 
-// CORS: локаль + прод
 const origins = [process.env.CLIENT_URL, "http://localhost:5173"].filter(
   Boolean
 );
@@ -31,7 +30,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-server.listen(PORT, () => {
+server.listen(PORT, "0.0.0.0", () => {
   console.log("server is running on PORT:" + PORT);
   connectDB();
 });
