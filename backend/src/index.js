@@ -9,7 +9,7 @@ import messageRoutes from "./routes/message.route.js";
 import { app, server } from "./lib/socket.js";
 
 dotenv.config();
-const PORT = process.env.PORT || 5001; // ← подстраховка по порту
+const PORT = process.env.PORT; // ← подстраховка по порту
 const __dirname = path.resolve();
 
 // CORS: локаль + прод
